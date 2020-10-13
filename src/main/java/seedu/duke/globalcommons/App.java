@@ -1,7 +1,10 @@
-package seedu.duke.apps;
+package seedu.duke.globalcommons;
 
+/**
+ * Class representing an application in PlanNUS.
+ */
 public class App {
-    boolean isExit = false;
+    private boolean isExit = false;
 
     public App() {
 
@@ -17,5 +20,9 @@ public class App {
 
     public void run() {
 
+    }
+
+    public boolean getIsExit() {
+        return this.isExit;
     }
 }

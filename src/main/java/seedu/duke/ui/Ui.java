@@ -2,6 +2,9 @@ package seedu.duke.ui;
 
 import java.util.Scanner;
 
+/**
+ * Class representing the ui for PlanNUS.
+ */
 public class Ui {
     private Scanner scanner;
 

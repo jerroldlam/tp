@@ -3,16 +3,15 @@ package seedu.duke.objects;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Class representing the user for PlanNUS.
+ */
 public class Person {
-    //General Variables
-    private String personName;
 
-    //Variables needed for CAP Calculation
+    private String personName;
     private double currentTotalMcxGrade;
     private int currentMc;
     private int currentMcAfterSU;
-
-    //Variables needed for Academic Planner
     private ArrayList<PartialModule> modulesList;
     private HashMap<String, PartialModule> modulesAddedMap;
 

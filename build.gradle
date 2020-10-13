@@ -31,11 +31,11 @@ test {
 }
 
 application {
-    mainClassName = "seedu.duke.Duke"
+    mainClassName = "seedu.duke.PlanNus"
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+    archiveBaseName = "PlanNus"
     archiveClassifier = null
 }
 
@@ -43,6 +43,14 @@ checkstyle {
     toolVersion = '8.23'
 }
 
-run{
+run {
     standardInput = System.in
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'seedu.duke.PlanNus'
+        )
+    }
 }

@@ -2,6 +2,10 @@ package seedu.duke.objects;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+/**
+ * Class representing module object to be stored in the Person object.
+ * It is a truncated version of FullModule with only relevant fields.
+ */
 public class PartialModule implements Comparable<PartialModule> {
     private String moduleCode;
     private int semesterIndex; // 1 to 8
@@ -50,6 +54,12 @@ public class PartialModule implements Comparable<PartialModule> {
         setCap(grade);
     }
 
+    /**
+     * Returns Academic points associated with letter grades.
+     * If grade is a special grading option, returns -1.00.
+     *
+     * @param grade user grade to check
+     */
     public void setCap(String grade) {
         switch (grade.toUpperCase()) {
         case "A+":
