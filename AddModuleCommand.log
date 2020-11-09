@@ -1,0 +1,4 @@
+Nov 06, 2020 6:37:14 PM seedu.duke.apps.academicplanner.commands.AddModuleCommand execute
+INFO: Executing add command.
+Nov 06, 2020 6:37:14 PM seedu.duke.apps.academicplanner.commands.AddModuleCommand validateModuleCode
+WARNING: Module entered is duplicated.

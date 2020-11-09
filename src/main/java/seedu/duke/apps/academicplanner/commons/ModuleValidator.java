@@ -1,23 +1,51 @@
 package seedu.duke.apps.academicplanner.commons;
 
-import seedu.duke.apps.moduleloader.ModuleLoader;
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import seedu.duke.apps.moduleloader.ModuleLoader;
+import seedu.duke.global.objects.FullModule;
+import seedu.duke.global.objects.Person;
 
+//@@author jerroldlam
+/**
+ * Class of a module validation object.
+ */
 public class ModuleValidator {
     private static final int STARTING_SEMESTER_INDEX = 1;
     private static final int FINAL_SEMESTER_INDEX = 10;
 
     private final ModuleLoader allModules;
-    private final ArrayList<PartialModule> modulesList;
-    private final HashMap<String, PartialModule> modulesAddedMap;
+    private final HashMap<String, ArrayList<Integer>> modulesAddedMap;
 
+    /**
+     * Default constructor for ModuleValidator.
+     *
+     * @param allModules all modules offered by NUS
+     * @param currentPerson current User
+     */
     public ModuleValidator(ModuleLoader allModules, Person currentPerson) {
         this.allModules = allModules;
-        this.modulesList = currentPerson.getModulesList();
         this.modulesAddedMap = currentPerson.getModulesAddedMap();
+    }
+
+    /**
+     * Overload constructor for EditUtils.
+     *
+     * @param allModules all modules offered by NUS
+     */
+    public ModuleValidator(ModuleLoader allModules) {
+        this.allModules = allModules;
+        this.modulesAddedMap = null;
+    }
+
+    /**
+     * Overload constructor for SharedUtils.
+     *
+     */
+    public ModuleValidator() {
+        this.allModules = null;
+        this.modulesAddedMap = null;
     }
 
     /**
@@ -49,8 +77,23 @@ public class ModuleValidator {
      * @param semesterIndex semesterIndex to check
      * @return false
      */
-    public boolean isValidSemester(int semesterIndex) {
+    public static boolean isValidSemester(int semesterIndex) {
         return (semesterIndex >= STARTING_SEMESTER_INDEX && semesterIndex <= FINAL_SEMESTER_INDEX);
+    }
+
+    /**
+     * Gets the module credit for a certain module code from actual database.
+     *
+     * @param moduleCode Module code to be retrieved
+     *
+     * @return Module credit
+     */
+    public Integer getModuleCreditFromDatabase(String moduleCode) {
+        Map<String, Integer> moduleMapReference = allModules.getModuleMap();
+        FullModule[] moduleArray = allModules.getModuleFullDetails();
+
+        Integer moduleCodeIndex = moduleMapReference.get(moduleCode);
+        return moduleArray[moduleCodeIndex].getModuleCredit();
     }
 
     /**
@@ -105,6 +148,37 @@ public class ModuleValidator {
         case "EXE" :         //Exempted
             //Fallthrough
         case "NT":           //Not taken
+            return true;
+        default:
+            return false;
+        }
+    }
+
+    /**
+     * Returns true if grade is a valid retakeable grade,
+     * else returns false.
+     *
+     * @param grade grade to check
+     * @return boolean
+     */
+    public boolean isRetakeGrade(String grade) {
+        switch (grade.toUpperCase()) {
+        case "F":
+            //Fallthrough
+        case "CU" :
+            //Fallthrough
+        case "U":
+            //Fallthrough
+        case "W":
+            //Fallthrough
+        case "AUD":
+            //Fallthrough
+        case "WU":
+            //Fallthrough
+        case "EXE":
+            //Fallthrough
+        case "IC":
+            //Fallthrough
             return true;
         default:
             return false;

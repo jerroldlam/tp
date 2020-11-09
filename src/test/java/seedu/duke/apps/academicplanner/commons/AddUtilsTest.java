@@ -4,15 +4,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+//@@author jerroldlam
 class AddUtilsTest {
-
     ModuleLoader allModules;
     Person currentPerson;
     AddUtils addUtils;
@@ -35,16 +35,16 @@ class AddUtilsTest {
         setup();
 
         ArrayList<PartialModule> modulesList = currentPerson.getModulesList();
-        assertEquals(modulesList.size(),0);
+        assertEquals(0,modulesList.size());
         addUtils.addModuleToUser("CS1010",1,"A+",4);
-        assertEquals(modulesList.size(),1);
+        assertEquals(1,modulesList.size());
 
         for (PartialModule m : modulesList) {
             if (m.getModuleCode().equalsIgnoreCase("CS1010")) {
-                assertEquals(m.getModuleCode(),"CS1010");
-                assertEquals(m.getSemesterIndex(),1);
-                assertEquals(m.getGrade(),"A+");
-                assertEquals(m.getModuleCredit(),4);
+                assertEquals("CS1010",m.getModuleCode());
+                assertEquals(1,m.getSemesterIndex());
+                assertEquals("A+",m.getGrade());
+                assertEquals(4,m.getModuleCredit());
             }
         }
         assertTrue(moduleValidator.isModTakenByUser("CS1010"));
@@ -56,25 +56,25 @@ class AddUtilsTest {
         setup();
 
         ArrayList<PartialModule> modulesList = currentPerson.getModulesList();
-        assertEquals(modulesList.size(),0);
+        assertEquals(0,modulesList.size());
 
         addUtils.addModuleToUser("CS1010",1,"A+",4);
-        assertEquals(modulesList.size(),1);
+        assertEquals(1,modulesList.size());
 
         addUtils.addModuleToUser("CS1231",1,"B-",4);
-        assertEquals(modulesList.size(),2);
+        assertEquals(2,modulesList.size());
 
         for (PartialModule m : modulesList) {
             if (m.getModuleCode().equalsIgnoreCase("CS1010")) {
-                assertEquals(m.getModuleCode(),"CS1010");
-                assertEquals(m.getSemesterIndex(),1);
-                assertEquals(m.getGrade(),"A+");
-                assertEquals(m.getModuleCredit(),4);
+                assertEquals("CS1010",m.getModuleCode());
+                assertEquals(1,m.getSemesterIndex());
+                assertEquals("A+",m.getGrade());
+                assertEquals(4,m.getModuleCredit());
             } else {
-                assertEquals(m.getModuleCode(),"CS1231");
-                assertEquals(m.getSemesterIndex(),1);
-                assertEquals(m.getGrade(),"B-");
-                assertEquals(m.getModuleCredit(),4);
+                assertEquals("CS1231",m.getModuleCode());
+                assertEquals(1,m.getSemesterIndex());
+                assertEquals("B-",m.getGrade());
+                assertEquals(4,m.getModuleCredit());
             }
         }
         assertTrue(moduleValidator.isModTakenByUser("CS1010"));

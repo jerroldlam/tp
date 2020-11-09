@@ -4,15 +4,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import seedu.duke.apps.moduleloader.ModuleLoader;
 import seedu.duke.apps.moduleloader.exceptions.ModuleLoaderException;
-import seedu.duke.objects.PartialModule;
-import seedu.duke.objects.Person;
+import seedu.duke.global.objects.PartialModule;
+import seedu.duke.global.objects.Person;
+import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
+//@@author harryleecp
 class RemoveUtilsTest {
-
     ModuleLoader allModules;
     Person currentPerson;
     ModuleValidator moduleValidator;
@@ -26,7 +28,7 @@ class RemoveUtilsTest {
             currentPerson = new Person("Bob");
             addUtils = new AddUtils(allModules,currentPerson);
             moduleValidator = new ModuleValidator(allModules,currentPerson);
-            removeUtils = new RemoveUtils(currentPerson);
+            removeUtils = new RemoveUtils(new Ui(), currentPerson);
         } catch (ModuleLoaderException e) {
             System.out.println(e.getMessage());
         }
@@ -40,7 +42,11 @@ class RemoveUtilsTest {
         assertEquals(modulesList.size(),0);
         addUtils.addModuleToUser("CS1010",1,"A+",4);
         assertEquals(modulesList.size(),1);
-        removeUtils.removeModuleFromUserModuleList("CS1010");
-        assertEquals(modulesList.size(), 0);
+        try {
+            removeUtils.removeModuleFromUserModuleList("CS1010");
+            assertEquals(modulesList.size(), 0);
+        } catch (Exception e) {
+            fail();
+        }
     }
 }

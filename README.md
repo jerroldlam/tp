@@ -1,64 +1,53 @@
-# Duke project template
+# PlanNUS
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+<table><tr><td><div style="text-align:center">
+    <img src="docs/images/PlanNUSLogo.png" />
+</div></td></tr></table>
 
-## Setting up in Intellij
+#### Foreword
 
-Prerequisites: JDK 11 (use the exact version), update Intellij to the most recent version.
+PlanNUS is a greenfield project which aims to solve the gap in undergraduate academic planning in NUS.
+With the Academic Calendar Planner, PlanNUS will be able to assist undergraduate students in forecasting their academic journey for their 4 or 5 years in NUS.
+With the CAP Calculator , PlanNUS will be able to tell you your current CAP and forecast future grades needed to achieve your target CAP.
 
-1. **Configure Intellij for JDK 11**, as described [here](https://se-education.org/guides/tutorials/intellijJdk.html).
-1. **Import the project _as a Gradle project_**, as described [here](https://se-education.org/guides/tutorials/intellijImportGradleProject.html).
-1. **Verify the set up**: After the importing is complete, locate the `src/main/java/seedu/duke/Duke.java` file, right-click it, and choose `Run Duke.main()`. If the setup is correct, you should see something like the below:
-   ```
-   > Task :compileJava
-   > Task :processResources NO-SOURCE
-   > Task :classes
-   
-   > Task :Duke.main()
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   
-   What is your name?
-   ```
-   Type some word and press enter to let the execution proceed to the end.
+## Target User Profile
 
-## Build automation using Gradle
+1. All Fresh NUS Undergraduates
+1. NUS Undergraduates who have completed at least 1 semester of study
 
-* This project uses Gradle for build automation and dependency management. It includes a basic build script as well (i.e. the `build.gradle` file).
-* If you are new to Gradle, refer to the [Gradle Tutorial at se-education.org/guides](https://se-education.org/guides/tutorials/gradle.html).
+## Feature List (for V2.1)
 
-## Testing
+* Academic Calendar Planner
+  * Add module
+  * Edit module
+  * Remove module
+  * View module details
+  * Search for module by keyword
+  * Print Calendar
+    * Full Calendar
+    * Semester Calendar
+* CAP Calculator
+  * Get current CAP
+  * Get results need for target CAP
+  * See possible CAP when setting as grade-less
+* General
+  * Saving of Academic Calendar into text file
+  * Loading of Academic Calendar from text file
+  
+## Features Coming Soon (V3.0 and beyond)
 
-### I/O redirection tests
+* Support max limit for the `Set SU` function in `capcalc`
+* Support discontinued modules from NUS
+* Support shortened commands for parsers
+* Support validation of requirements for modules
 
-* To run _I/O redirection_ tests (aka _Text UI tests_), navigate to the `text-ui-test` and run the `runtest(.bat/.sh)` script.
+## Useful Links
 
-### JUnit tests
-
-* A skeleton JUnit test (`src/test/java/seedu/duke/DukeTest.java`) is provided with this project template. 
-* If you are new to JUnit, refer to the [JUnit Tutorial at se-education.org/guides](https://se-education.org/guides/tutorials/junit.html).
-
-## Checkstyle
-
-* A sample CheckStyle rule configuration is provided in this project.
-* If you are new to Checkstyle, refer to the [Checkstyle Tutorial at se-education.org/guides](https://se-education.org/guides/tutorials/checkstyle.html).
-
-## CI using GitHub Actions
-
-The project uses [GitHub actions](https://github.com/features/actions) for CI. When you push a commit to this repo or PR against it, GitHub actions will run automatically to build and verify the code as updated by the commit/PR.
-
-## Documentation
-
-`/docs` folder contains a skeleton version of the project documentation.
-
-Steps for publishing documentation to the public: 
-1. If you are using this project template for an individual project, go your fork on GitHub.<br>
-   If you are using this project template for a team project, go to the team fork on GitHub.
-1. Click on the `settings` tab.
-1. Scroll down to the `GitHub Pages` section.
-1. Set the `source` as `master branch /docs folder`.
-1. Optionally, use the `choose a theme` button to choose a theme for your documentation.
+* [**About Us**](https://ay2021s1-cs2113t-f12-1.github.io/tp/AboutUs.html)
+* [**Configuration guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/ConfigurationGuide.html)
+* [**Developer guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DeveloperGuide.html)
+* [**DevOps guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DevOpsGuide.html)
+* [**Documentation guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/DocumentationGuide.html)
+* [**Logging guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/LoggingGuide.html)
+* [**Testing guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/TestingGuide.html)
+* [**User guide**](https://ay2021s1-cs2113t-f12-1.github.io/tp/UserGuide.html)

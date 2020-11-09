@@ -15,5 +15,9 @@ bin/
 
 /text-ui-test/ACTUAL.txt
 text-ui-test/EXPECTED-UNIX.TXT
+PlanNUS.txt
 /text-ui-test/DIFF.TXT
 DIFF.TXT
+PlanNUS.txt
+
+logs/
